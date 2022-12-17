@@ -19,8 +19,6 @@ a:link {
     color: var(--mediumvist);
   }
 
-
-  
 nav {
     color: var(--dark);
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
@@ -79,6 +77,9 @@ h1 {
     cursor: pointer;
     background-color: var(--medium);
 }
+
+/*disable button? */
+
 .hidden {
     display:none;
 }
