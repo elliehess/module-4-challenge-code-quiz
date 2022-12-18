@@ -9,17 +9,21 @@
     <body>
         <nav>
             <ul>
+                <!---Our timer that will count down once we hit start our quiz-->
                 <li class ="timer">Time: 75 </li>
+                <!---We will store our scores here-->
                 <li class = "high-scores"><a href = "">View High Scores</a></li>
             </ul>
         </nav>
         <div class="container">
             <div id="home" class="flex-column flex-center">
+                <div id="question-container" class="hide"></div>
                 <h1>Coding Quiz Challenge</h1>
                 <p>Try to answer as many of the following code-related questions as you can
                     within the time limit of 75 seconds.<br> Keep in mind that incorrect answers
                     will deduct 10 seconds from your remaining time. Good luck!</p>
-                <button class="start-button">Start</button>
+                <!---Includes our start button to initate quiz-->
+                    <button id="start-btn" class="start-btn btn">Start</button>
             </div>
         </div>
     </body>
