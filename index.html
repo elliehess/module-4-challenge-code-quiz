@@ -10,14 +10,14 @@
         <nav>
             <ul>
                 <!---Our timer that will count down once we hit start our quiz-->
-                <li class ="timer">Time: 75 </li>
+                <li class ="timer">Time: 75</li>
+
                 <!---We will store our scores here-->
                 <li class = "high-scores"><a href = "">View High Scores</a></li>
             </ul>
         </nav>
         <div class="container">
             <div id="home" class="flex-column flex-center">
-                <div id="question-container" class="hide"></div>
                 <h1>Coding Quiz Challenge</h1>
                 <p>Try to answer as many of the following code-related questions as you can
                     within the time limit of 75 seconds.<br> Keep in mind that incorrect answers
@@ -26,5 +26,44 @@
                     <button id="start-btn" class="start-btn btn">Start</button>
             </div>
         </div>
+
+        <div class ="container"> <!---sp-->
+            <div id="quiz" class ="justify-center flex-column">
+                <div id="hud"> <!---Create a Heads Up Display ID to keep track of score-->
+                    <div class="hud-item">
+                        <p id="quizText" class="hud-prefix">
+                            Question
+                        </p>
+                        <div id="progressBar">
+                            <div id="progressBarFull"></div>
+                        </div>
+                    </div>
+                    <div class ="hud-item">
+                        <p class ="hud-prefix">
+                            SCORE
+                        </p>
+                        <h2 class="hud-text" id="score">0</h2>
+                    </div>
+                </div>
+                <h1 id="question">Q</h1>
+                <div class="choice-container">
+                    <p class="choice-prefix">A</p>
+                    <p class="choice-text" data-number="1">Choice</p>
+                </div>
+                <div class="choice-container">
+                    <p class="choice-prefix">B</p>
+                    <p class="choice-text" data-number="2">Choice 2</p>
+                </div>
+                <div class="choice-container">
+                    <p class="choice-prefix">C</p>
+                    <p class="choice-text" data-number="3">Choice 3</p>
+                </div>
+                <div class="choice-container">
+                    <p class="choice-prefix">D</p>
+                    <p class="choice-text" data-number="4">Choice 4</p>
+                </div>
+            </div> 
+        </div> 
+        <script src="assets/js/script.js"></script>   
     </body>
 </html>
