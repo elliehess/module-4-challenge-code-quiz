@@ -1,16 +1,24 @@
 /*we will be able to grab these elements from the HTML and interact with them*/
+const home = document.querySelector('#home');
 const question = document.querySelector('#question');
-const choices = Array.from(document.querySelector('.choice-text'));
-const progressText = document.querySelector('#progressText');
+const choices = Array.from(document.querySelectorAll('.choice-text'));
+const quizText = document.querySelector('#quizText');
 const scoreText = document.querySelector('#score');
 const progressBarFull = document.querySelector('#progressBarFull');
+const timerEl = document.getElementById("timer");
+timesupCont = document.getElementById("timesUP");
+
+const startingTime = 1;
 
 /*setting our variables*/
 let currentQuestion = {};
 let acceptingAnswers = true;
 let score = 0;
 let questionNumber = 0;
-let availableQuestions = []
+let availableQuestions = [];
+let time = startingTime * 75;
+var timeInterval;
+
 
 /*creating our questions */
 let questions = [
@@ -20,7 +28,7 @@ let questions = [
         choice2: 'Color Style Sheets',
         choice3: 'Cascading Style Sheets',
         choice4: 'Computer Stance Sources',
-        answer: 'Cascading Style Sheets'
+        answer: '3'
     },
     {
         question: 'Arrays in Javascript can be used to store:',
@@ -28,7 +36,7 @@ let questions = [
         choice2: 'Strings',
         choice3: 'Numbers',
         choice4: 'All of the above',
-        answer: 'All of the above',
+        answer: '4',
     },
     {
         question: 'What does HTML stand for?',
@@ -36,15 +44,15 @@ let questions = [
         choice2: 'Hyperfixated Made Language',
         choice3: 'Hyper Mode Load',
         choice4: 'HowTo Make Language',
-        answer: 'HyperText Markup Language'
+        answer: '1'
     },
     {
         question: 'A Boolean value can be:',
-        chicoe1: 'true',
+        choice1: 'true',
         choice2: 'false',
         choice3: 'Both a and b',
         choice4: 'Neither a or b',
-        answer: 'Both a and b',
+        answer: '3',
     },
     {
         question: 'Javascript is used by programmers to:',
@@ -52,7 +60,7 @@ let questions = [
         choice2: 'create dynamic and interactive web content',
         choice3: 'create static web pages and applications',
         choice4: 'none of the above',
-        answer: 'create dynamic and interactive web content',
+        answer: '2',
     }
 ]
 
@@ -64,7 +72,31 @@ startQuiz = () => { /*start Quiz function */
     questionNumber = 0
     score = 0
     availableQuestions = [...questions]
+    timeInterval = setInterval(startTimer, 1000);
     getNextQuestion ()
+}
+
+function startTimer() {
+
+    if (numOfQuestions = availableQuestions.length - 1) {
+        startQuiz.classList.add("hide");
+    }
+    homePage.classList.add("hide");
+    startQuiz.classList.remove("hide");
+    const minutes = Math.floor(time / 60);
+    var seconds = time % 75;
+    if (seconds < 10) {
+        seconds = "0" + seconds;
+    }
+    if (time <= 0) {
+        timerEl.innerHTML = "Oops, Time's Up!";
+        startQuiz.classList.add("hide");
+        timesUpCont.classList.remove("hide");
+    }
+    
+    timerEl.innerHTML = minutes + ":" + seconds;
+    time--;
+
 }
 
 getNextQuestion = () => { /*go through questions and once finished grab the score and display it on screen*/
@@ -75,12 +107,12 @@ getNextQuestion = () => { /*go through questions and once finished grab the scor
 
     /* loop through the questions until there are none left */
     questionNumber++
-    progressText.innerText = `Question ${questionNumber} of ${MAX_QUESTUONS}`
+    quizText.innerText = `Question ${questionNumber} of ${MAX_QUESTIONS}`
     progressBarFull.style.width = `${(questionNumber/MAX_QUESTIONS) * 100}%`
 
     /* choose a random question and dislay it */
     const questionList = Math.floor(Math.random() * availableQuestions.length)
-    currentQuestion = availableQuestions(questionList)
+    currentQuestion = availableQuestions[questionList]
     question.innerText = currentQuestion.question
 
     choices.forEach(choice => {
@@ -100,12 +132,12 @@ choices.forEach(choice => {
         const selectedChoice = e.target
         const selectedAnswer = selectedChoice.dataset['number']
 
-        let applyClass = selectedAnswer == currentQuestion.answer ? 'correct' : 
-        'incorrect' /*choose whether to apply the GREEN correct or RED incorrect class style */
+        let applyClass = selectedAnswer == currentQuestion.answer ? 'correct' : 'incorrect' /*choose whether to apply the GREEN correct or RED incorrect class style */
 
         if(applyClass === 'correct') { /*you will increase score if quesiton correct */
             incrementScore(SCORE_POINTS)
         }
+        
         selectedChoice.parentElement.classList.add(applyClass)
 
         setTimeout (() => { /*perform the next questin function after selected*/
@@ -120,7 +152,7 @@ incrementScore = num => { /*update our score */
     scoreText.innerText = score
 }
 
-startQuiz ()
+startQuiz ();
 
 
 

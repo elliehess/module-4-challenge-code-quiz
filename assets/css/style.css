@@ -4,6 +4,7 @@
     --mediumvist: rgb(18, 95, 79);
     --dark: black; 
     --correct: yellowgreen;
+    --incorrect: red;
 }
 
 * {
@@ -119,7 +120,7 @@ h1 {
 }
 
 .correct {
-    background-color: var(--correct);
+    background-color: yellowgreen;
 }
 
 .incorrect {
