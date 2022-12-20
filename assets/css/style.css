@@ -18,7 +18,7 @@ a:link {
     color: var(--medium);
   }
   a:visited {
-    color: var(--mediumvist);
+    color: var(--dark);
   }
 
 nav {
@@ -74,7 +74,7 @@ h1 {
     text-align: center;
 }
 
-#start-btn {
+.btn {
     padding: 20px 0;
     width: 300px;
     text-align: center;
@@ -83,7 +83,7 @@ h1 {
     border-radius: 5px;
 }
 
-#start-btn:hover {
+.btn:hover {
     cursor: pointer;
     background-color: var(--medium);
 }
@@ -160,4 +160,44 @@ h1 {
     .choice-container{
         min-width: 40rem;
     }
+}
+
+/* End Page CSS */
+.end-form-container {
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 30rem;
+}
+
+input {
+    margin-bottom: 16 px;
+    width: 20rem;
+    padding: 20px;
+    font-size: 28px;
+    border-color: var(--mediumvist);
+}
+
+input::placeholder {
+    color: var(--medium);
+}
+
+#end-text {
+    font-size: 32px;
+    color: var(--dark);
+    text-align: center;
+}
+
+#saveScoreBtn {
+    border: none;
+} 
+
+#highScoresList {
+    list-style: none;
+}
+
+.high-score {
+    font-size: 28px;
+    margin-bottom: 8px;
 }

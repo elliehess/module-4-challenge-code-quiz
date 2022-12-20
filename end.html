@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>End</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" /> <!--linking our stylesheet-->
+</head>
+<body>
+    <div class="container"> <!---creating our High Scores -->
+        <div id="end" class="flex-center flex-column">
+            <h1 id="finalScore">0</h1>
+            <form class="end-form-container">
+                <h2 id="end-text">Save your score by entering your name below!</h2>
+                <input type="text" name="name" id="username" placeholder="Enter your name">
+                <button class="btn" id="saveScoreBtn" type="submit"
+                onclick="saveHighScore(event)" disabled>Save</button>
+            </form>
+            <a href="/index.html" class="btn">Play Again</a> <!---navigate buttons-->
+            <a href="/" class="btn">Go Home</a>
+        </div>
+    </div>
+    <script src="assets/js/end.js"></script>   <!---linking the end JS-->
+</body>
+</html>
