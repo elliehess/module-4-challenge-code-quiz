@@ -13,7 +13,9 @@ username.addEventListener('keyup', () => {
     saveScoreBtn.disabled = !username.value
 })
 
-saveHighScore = e => {
+var saveHighScores = []
+
+saveHighScores = e => { /*I cannot get my high scores to post on the page*/
     e.preventDefault()
 
     const score = {

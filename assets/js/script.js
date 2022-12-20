@@ -76,8 +76,8 @@ startQuiz = () => { /*start Quiz function */
     getNextQuestion ()
 }
 
-function startTimer() {
-
+function startTimer() { /*tried my best at a timer*/
+ 
     if (numOfQuestions = availableQuestions.length - 1) {
         startQuiz.classList.add("hide");
     }
@@ -102,7 +102,7 @@ function startTimer() {
 getNextQuestion = () => { /*go through questions and once finished grab the score and display it on screen*/
     if(availableQuestions.length === 0 || questionNumber > MAX_QUESTIONS) {
         localStorage.setItem('mostrecentScore', score)
-        return window.location.assign('/end.html') /*creating another html to store what happens when quiz is over*/
+        return window.location.assign('end.html') /*creating another html to store what happens when quiz is over*/
     }
 
     /* loop through the questions until there are none left */
